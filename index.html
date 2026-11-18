@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>مساعد ملف الترقية العلمية</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--pri:#14365d;--pri2:#1f4f86;--acc:#c8993a;--bg:#f3efe6;--card:#fff;--ink:#1d2433;--mut:#6b7385;--ok:#1f8a4c;--bad:#c0392b;--warn:#d98a0b;--line:#e3ddcf}
+body[data-ver="new"]{--pri:#0b5d57;--pri2:#13867d;--acc:#e07b39;--bg:#eef5f3;--line:#d3e3df}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{font-family:'Cairo','Segoe UI',Tahoma,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.7;font-size:15px}
+button,input,select,textarea{font-family:inherit;font-size:inherit}
+header{background:linear-gradient(135deg,var(--pri),var(--pri2));color:#fff;padding:14px 18px 0}
+.top{display:flex;align-items:center;gap:12px;flex-wrap:wrap;max-width:1180px;margin:0 auto}
+.top h1{font-size:20px;margin:0;font-weight:800;flex:1;min-width:200px}
+.top h1 small{display:block;font-weight:400;font-size:12px;opacity:.85}
+.hbtn{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.35);color:#fff;padding:5px 12px;border-radius:8px;cursor:pointer}
+.hbtn:hover{background:rgba(255,255,255,.28)}
+.vsw{display:flex;gap:10px;max-width:1180px;margin:12px auto 0;flex-wrap:wrap}
+.vcard{flex:1;min-width:240px;background:rgba(255,255,255,.12);border:2px solid transparent;border-bottom:none;border-radius:12px 12px 0 0;padding:8px 14px;cursor:pointer;color:#fff;text-align:right}
+.vcard b{display:block;font-size:15px}
+.vcard span{font-size:12px;opacity:.9}
+.vcard.on{background:var(--bg);color:var(--pri);border-color:var(--bg)}
+.badge{display:inline-block;background:var(--acc);color:#fff;border-radius:20px;padding:0 9px;font-size:11px;font-weight:700;margin-inline-start:6px}
+nav{background:var(--bg);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:5}
+nav .in{max-width:1180px;margin:0 auto;display:flex;overflow-x:auto;padding:0 10px}
+nav button{background:none;border:none;border-bottom:3px solid transparent;padding:11px 14px;cursor:pointer;color:var(--mut);font-weight:600;white-space:nowrap}
+nav button.on{color:var(--pri);border-bottom-color:var(--acc)}
+main{max-width:1180px;margin:0 auto;padding:16px 14px 60px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px;margin-bottom:14px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
+.card h3{margin:0 0 10px;font-size:16px;color:var(--pri)}
+.grid{display:grid;gap:12px}
+.g2{grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+.g4{grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}
+label.f{display:block;font-size:12.5px;color:var(--mut);font-weight:600}
+label.f input,label.f select,label.f textarea{display:block;width:100%;margin-top:3px;padding:7px 9px;border:1px solid #cfc8b8;border-radius:8px;background:#fff;color:var(--ink)}
+label.f.chk{display:flex;gap:7px;align-items:center;padding-top:20px}
+label.f.chk input{width:auto;margin:0}
+.btn{display:inline-block;background:var(--pri);color:#fff;border:none;padding:7px 14px;border-radius:9px;cursor:pointer;font-weight:600}
+.btn:hover{filter:brightness(1.12)}
+.btn.gold{background:var(--acc)}
+.btn.ghost{background:#fff;color:var(--pri);border:1px solid var(--pri)}
+.btn.red{background:var(--bad)}
+.btn.sm{padding:3px 10px;font-size:13px}
+.banner{border-radius:12px;padding:10px 14px;margin-bottom:14px;font-size:14px}
+.banner.info{background:#fff7e0;border:1px solid #ecd48f}
+.banner.warn{background:#fdeceb;border:1px solid #f0b4ae}
+.banner.good{background:#e8f6ee;border:1px solid #a9d9bc}
+.rings{display:flex;gap:14px;flex-wrap:wrap;justify-content:space-around}
+.ring{text-align:center;width:130px}
+.ring svg{width:110px;height:110px}
+.ring .l{font-size:13px;font-weight:700;color:var(--pri)}
+.ring .s{font-size:12px;color:var(--mut)}
+.chk-row{display:flex;gap:10px;align-items:flex-start;padding:8px 0;border-bottom:1px dashed var(--line)}
+.chk-row:last-child{border:none}
+.dot{flex:none;width:24px;height:24px;border-radius:50%;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700}
+.dot.ok{background:var(--ok)}.dot.bad{background:var(--bad)}.dot.warn{background:var(--warn)}
+.chk-row small{display:block;color:var(--mut)}
+.bar{background:#e6e1d3;border-radius:20px;height:10px;overflow:hidden}
+.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--acc),var(--pri2));border-radius:20px}
+.item{border:1px solid var(--line);border-radius:12px;padding:12px;margin-bottom:12px;background:#fcfbf8}
+.item .hd{display:flex;gap:8px;align-items:center;margin-bottom:8px;flex-wrap:wrap}
+.item .hd b{flex:1;color:var(--pri)}
+.pts{background:var(--pri);color:#fff;border-radius:10px;padding:2px 12px;font-weight:800;white-space:nowrap}
+.att{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-top:6px}
+.chip{background:#eef2f8;border:1px solid #c9d4e6;border-radius:20px;padding:0 4px 0 10px;font-size:12.5px;display:inline-flex;gap:4px;align-items:center;max-width:240px}
+.chip a{color:var(--pri2);text-decoration:none;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.chip button{border:none;background:none;color:var(--bad);cursor:pointer;font-size:16px;line-height:1}
+.slot{display:flex;gap:8px;align-items:center;flex-wrap:wrap;padding:6px 0;border-bottom:1px dashed var(--line)}
+.slot:last-child{border:none}
+.slot .nm{flex:1;min-width:200px}
+.st{padding:3px 8px;border-radius:8px;border:1px solid #cfc8b8;background:#fff}
+.st.s1{background:#fff3cd}.st.s2{background:#d9ecff}.st.s3{background:#d6f1de}
+table.t{width:100%;border-collapse:collapse;font-size:13.5px}
+table.t th,table.t td{border:1px solid var(--line);padding:6px 8px;text-align:right;vertical-align:top}
+table.t th{background:var(--pri);color:#fff}
+table.t tr:nth-child(even) td{background:#faf8f2}
+.tl{position:relative;padding-right:30px}
+.tl .st1{position:relative;padding:8px 0 14px}
+.tl .st1:before{content:"";position:absolute;right:-21px;top:34px;bottom:-4px;width:2px;background:var(--line)}
+.tl .st1:last-child:before{display:none}
+.tl .nd{position:absolute;right:-30px;top:8px;width:20px;height:20px;border-radius:50%;background:#fff;border:3px solid var(--line)}
+.tl .st1.done .nd{background:var(--ok);border-color:var(--ok)}
+.tl .st1.cur .nd{border-color:var(--acc);background:#fff;box-shadow:0 0 0 4px rgba(200,153,58,.25)}
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.45);display:flex;align-items:flex-start;justify-content:center;padding:30px 10px;z-index:50;overflow:auto}
+.modal .box{background:#fff;border-radius:14px;max-width:760px;width:100%;padding:16px 18px}
+#toast{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);background:#222;color:#fff;padding:8px 18px;border-radius:30px;display:none;z-index:99}
+.mut{color:var(--mut);font-size:13px}
+.ovf{overflow-x:auto}
+footer{text-align:center;color:var(--mut);font-size:12.5px;padding:20px}
+.num{direction:ltr;display:inline-block}
+@media print{header,nav,.noprint,footer{display:none!important}body{background:#fff}.card{box-shadow:none;break-inside:avoid}}
+</style>
+</head>
+<body data-ver="old">
+<header>
+  <div class="top">
+    <h1>مساعد ملف الترقية العلمية<small>جمع المستمسكات ومتابعة التقدم — وزارة التعليم العالي والبحث العلمي / العراق</small></h1>
+    <button class="hbtn" data-act="backup">⬇ نسخة احتياطية</button>
+    <label class="hbtn" style="cursor:pointer">⬆ استرجاع<input type="file" accept=".json" hidden data-act="restore"></label>
+  </div>
+  <div class="vsw">
+    <button class="vcard" data-ver="old"><b>التعليمات الحالية<span class="badge">نافذة</span></b><span>رقم 167 لسنة 2017</span></button>
+    <button class="vcard" data-ver="new"><b>التعليمات الجديدة<span class="badge">جديدة</span></b><span>رقم 10 لسنة 2025 — تنفذ في 22/12/2026</span></button>
+  </div>
+</header>
+<nav><div class="in" id="tabs"></div></nav>
+<main id="main"></main>
+<footer>تصميم وبرمجة: م.م. علي عبد الوهاب الصفار — جامعة الموصل<br>البيانات والمرفقات تُحفظ على هذا الجهاز فقط (داخل المتصفح).</footer>
+<div id="toast"></div>
+<div id="modal"></div>
+
+<script>
+/* ================= أدوات ================= */
+const $=(s,r=document)=>r.querySelector(s);
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const uid=()=>Math.random().toString(36).slice(2,10);
+const round=n=>Math.round(n*100)/100;
+function getIn(o,p){return p.split('.').reduce((a,k)=>a==null?a:a[k],o)}
+function setIn(o,p,v){const ks=p.split('.');let a=o;for(let i=0;i<ks.length-1;i++){if(a[ks[i]]==null)a[ks[i]]=/^\d+$/.test(ks[i+1])?[]:{};a=a[ks[i]]}a[ks[ks.length-1]]=v}
+function toast(m){const t=$('#toast');t.textContent=m;t.style.display='block';clearTimeout(toast.h);toast.h=setTimeout(()=>t.style.display='none',2600)}
+const fmtD=d=>d?d.toLocaleDateString('en-GB'):'—';
+const parseD=s=>s?new Date(s+'T00:00:00'):null;
+const addYears=(d,n)=>{const x=new Date(d);x.setFullYear(x.getFullYear()+n);return x};
+const today=()=>{const d=new Date();d.setHours(0,0,0,0);return d};
+const daysTo=d=>Math.round((d-today())/86400000);
+const EFFECT=new Date('2026-12-22T00:00:00');
+
+/* ================= الملفات (IndexedDB) ================= */
+const idb=new Promise((res,rej)=>{try{const q=indexedDB.open('promoFiles',1);q.onupgradeneeded=()=>q.result.createObjectStore('f');q.onsuccess=()=>res(q.result);q.onerror=()=>rej(q.error)}catch(e){rej(e)}});
+const fput=async(id,rec)=>{const d=await idb;return new Promise((r,j)=>{const t=d.transaction('f','readwrite');t.objectStore('f').put(rec,id);t.oncomplete=r;t.onerror=()=>j(t.error)})};
+const fget=async id=>{const d=await idb;return new Promise((r,j)=>{const q=d.transaction('f').objectStore('f').get(id);q.onsuccess=()=>r(q.result);q.onerror=()=>j(q.error)})};
+const fdel=async id=>{const d=await idb;return new Promise((r,j)=>{const t=d.transaction('f','readwrite');t.objectStore('f').delete(id);t.oncomplete=r;t.onerror=()=>j(t.error)})};
+
+/* ================= القواعد ================= */
+const ACTS=[
+ {id:'book',name:'كتاب مؤلف أو مترجم (ISBN)',mode:'choice',doc:'نسخة من الكتاب + ISBN + رقم الإيداع',choices:[
+  {l:'منفرد – أقل من 100 صفحة',p:10},{l:'منفرد – 100 إلى 200',p:15},{l:'منفرد – 200 إلى 300',p:20},{l:'منفرد – 300 فأكثر',p:25},
+  {l:'مع مؤلف واحد – أقل من 100',p:10},{l:'مع مؤلف واحد – 100 إلى 200',p:15},{l:'مع مؤلف واحد – 200 إلى 300',p:20},{l:'مع مؤلف واحد – 300 فأكثر',p:25},
+  {l:'مع مؤلفين – أقل من 100',p:5},{l:'مع مؤلفين – 100 إلى 200',p:10},{l:'مع مؤلفين – 200 إلى 300',p:15},{l:'مع مؤلفين – 300 فأكثر',p:20}]},
+ {id:'conf',name:'بحث منشور في مؤتمر علمي',mode:'choice',doc:'شهادة المشاركة + الصفحة الأولى من الوقائع',choices:[{l:'داخل العراق',p:5},{l:'خارج العراق',p:10}]},
+ {id:'study',name:'دراسة علمية تعالج مشكلة في المجتمع العراقي',mode:'choice',doc:'الدراسة + مصادقة الجهة الرسمية',choices:[{l:'في التخصص',p:15},{l:'خارج التخصص',p:10}]},
+ {id:'review',name:'مقال مراجعة (Subject Review)',mode:'unit',unit:5,cap:10,ul:'مقال',doc:'نسخة المقال المنشور'},
+ {id:'patent',name:'براءة اختراع',mode:'choice',doc:'شهادة البراءة مصادق عليها',choices:[{l:'دولية',p:25},{l:'محلية',p:10}]},
+ {id:'medal',name:'أوسمة علمية',mode:'choice',doc:'الوسام أو كتاب منحه',choices:[{l:'دولية',p:10},{l:'محلية',p:5}]},
+ {id:'evalb',name:'تقييم بحوث أو مراجعة كتاب',mode:'choice',verify:true,doc:'كتاب التكليف أو شهادة التقييم',choices:[{l:'داخل العراق',p:5},{l:'خارج العراق',p:6}]},
+ {id:'perf',name:'معدل تقييم الأداء',mode:'choice',doc:'استمارة تقييم الأداء الموقعة من رئيس القسم',choices:[{l:'من 70 إلى 79',p:6},{l:'من 80 إلى 89',p:8},{l:'من 90 إلى 99',p:10}]},
+ {id:'exam',name:'المشاركة في اللجان الامتحانية',mode:'unit',unit:2,cap:10,ul:'لجنة',doc:'الأمر الإداري بتشكيل اللجنة'},
+ {id:'course',name:'محاضر في دورات تدريبية أو التعليم المستمر',mode:'unit',unit:2,cap:10,ul:'دورة',doc:'كتاب التكليف أو شهادة المحاضر'},
+ {id:'hosp',name:'العمل في المستشفيات التعليمية',mode:'fixed',p:15,doc:'أمر التكليف'},
+ {id:'chief',name:'رئيس (مدير) تحرير مجلة علمية',mode:'fixed',p:10,doc:'أمر التكليف'},
+ {id:'editor',name:'عضو هيئة تحرير مجلة علمية',mode:'fixed',p:5,doc:'أمر التكليف'},
+ {id:'quality',name:'مسؤول وحدة ضمان الجودة',mode:'fixed',p:3,doc:'أمر التكليف'},
+ {id:'newdept',name:'استحداث أقسام علمية',mode:'unit',unit:2,cap:10,ul:'استحداث',doc:'كتاب الاستحداث'},
+ {id:'edsup',name:'الإشراف التربوي',mode:'unit',unit:1,cap:10,ul:'تكليف',doc:'أمر التكليف'},
+ {id:'msabr',name:'الإشراف على طلبة ماجستير خارج العراق',mode:'choice',doc:'كتاب الإشراف',choices:[{l:'طالب واحد',p:5},{l:'طالبان فأكثر',p:10}]},
+ {id:'phdabr',name:'الإشراف على طلبة دكتوراه خارج العراق',mode:'choice',doc:'كتاب الإشراف',choices:[{l:'طالب واحد',p:10},{l:'طالبان فأكثر',p:20}]},
+ {id:'extra',name:'الأنشطة اللاصفية للطلبة',mode:'unit',unit:2,cap:10,ul:'مشاركة',doc:'كتاب أو شهادة المشاركة'},
+ {id:'confc',name:'عضوية لجنة في مؤتمرات',mode:'unit',unit:2,cap:10,ul:'لجنة',doc:'كتاب العضوية'},
+ {id:'dorm',name:'الإشراف على الأقسام الداخلية',mode:'unit',unit:5,cap:10,ul:'عام',doc:'أمر التكليف'},
+ {id:'minis',name:'عضوية اللجان الوزارية',mode:'unit',unit:5,cap:10,ul:'لجنة',doc:'الأمر الوزاري'},
+ {id:'coop',name:'التعاون التربوي مع جامعات ومنظمات عالمية',mode:'choice',doc:'كتاب التعاون',choices:[{l:'مشاركة واحدة',p:5},{l:'مشاركتان فأكثر',p:10}]},
+ {id:'hidx',name:'مؤشر هيرش (H-index) في Scopus',mode:'unit',unit:1,cap:30,ul:'قيمة H',doc:'لقطة شاشة من Scopus'}
+];
+const BASE={
+ ranks:{
+  mudarris:{label:'مدرس',from:'مدرس مساعد',years:3,total:70,t1:46,t2:24,papers:2,fine:1},
+  asst:{label:'أستاذ مساعد',from:'مدرس',years:4,total:80,t1:52,t2:28,papers:3,fine:2},
+  prof:{label:'أستاذ',from:'أستاذ مساعد',years:6,total:90,t1:59,t2:31,papers:3,fine:99}},
+ t1a:{if:{mudarris:30,asst:20,prof:20},irq:{mudarris:20,asst:15,prof:10}},
+ t1b:{mudarris:[20,15,10],asst:[15,10,5],prof:[15,10,5]},
+ hmin:{mudarris:1,asst:2,prof:4},
+ acts:ACTS
+};
+const clone=o=>JSON.parse(JSON.stringify(o));
+const RULESET={
+ old:Object.assign(clone(BASE),{id:'old',title:'تعليمات الترقيات العلمية رقم 167 لسنة 2017',pct:[100,80,70],
+  bonus:[[0,'بدون'],[3,'3% — مساعد رئيس جامعة'],[5,'5% — عميد'],[10,'10% — رئيس قسم']],
+  stages:['تجميع الملف وتدقيقه ذاتياً','اللجنة العلمية في القسم','مصادقة رئيس القسم','لجنة الترقيات في الكلية','شعبة الترقيات في الجامعة','اللجنة المركزية في الوزارة (للمراتب العليا)','صدور الأمر الجامعي بالترقية'],
+  docs:[
+   'طلب تحريري للترقية إلى رئيس القسم','استمارة الترقية العلمية (الملحق 2)','استمارة معلومات عامة / خاصة بالمتقدم','أمر منح المرتبة الحالية (لاحتساب المدة)',
+   'استمارة تقديم البحوث للترقية والتعضيد','استمارة خبير الاستلال العلمي','استمارة الرصانة العلمية الإلكترونية','إقرار اللجنة العلمية (الاقتباس والاختصاص)',
+   'تعهد صحة نسب الاختصاص الدقيق للبحث المشترك','تعهد صحة البحوث السابقة والحالية وعدم الاشتراك مع طلبة الدراسات العليا (مختوم من الشعبة القانونية)',
+   'محضر حلقة نقاشية لتسجيل البحث','نسخة من كل بحث أو مؤلف (ورقية وإلكترونية)','قرص مدمج CD بصيغة PDF للبحوث','النشاطات العلمية مصادق عليها من اللجنة العلمية ورئيس القسم'],
+  pdocs:['نسخة البحث (PDF)','كتاب القبول أو دليل النشر','إثبات رصانة المجلة (ISSN / الاعتماد)','تقرير الاستلال ونسبة الاقتباس','استمارة تسجيل البحث والتخصص']}),
+ new:Object.assign(clone(BASE),{id:'new',title:'تعليمات الترقيات العلمية رقم 10 لسنة 2025',pct:[100,80,70,50,40,20],
+  bonus:[[0,'بدون'],[5,'5% — منصب قيادي/إداري واحد']],
+  stages:['تجميع الملف وتدقيقه ذاتياً','الرفع على النظام الإلكتروني المركزي (دائرة البحث والتطوير)','اللجنة العلمية في القسم','مصادقة رئيس القسم','لجنة الترقيات في الكلية','شعبة الترقيات في الجامعة','اللجنة المركزية في الوزارة (للمراتب العليا)','صدور الأمر بالترقية'],
+  docs:[
+   'طلب تحريري للترقية إلى رئيس القسم أو الفرع العلمي','إقرار خطي بالنتاجات العلمية والتعهد بالصحة وعدم تقديمها في ترقية سابقة','أمر منح المرتبة الحالية (لاحتساب المدة)',
+   'نسخة من كل بحث أو مؤلف (ورقية وإلكترونية)','قرص مدمج CD يحتوي البحوث المنشورة بصيغة PDF مع الروابط','النشاطات العلمية مصادق عليها من اللجنة العلمية ورئيس القسم',
+   'إقرار اللجنة العلمية بنسبة الاقتباس والاختصاص العام والدقيق','تعهد خطي بعدم الاستلال عند عدم توفر رسائل الباحثين المشاركين','مستندات ملء الطلب على النظام الإلكتروني للترقيات'],
+  pdocs:['نسخة البحث (PDF)','كتاب القبول أو دليل النشر','إثبات رصانة المجلة والفهرسة (Scopus / Web of Science عند الاشتراط)','تقرير الاستلال ونسبة الاقتباس','إقرار الاختصاص الدقيق/العام']})
+};
+const TARGET={assistant:'mudarris',mudarris:'asst',asst:'prof'};
+const RANKLBL={assistant:'مدرس مساعد',mudarris:'مدرس',asst:'أستاذ مساعد',prof:'أستاذ'};
+const DOCST=['لم يبدأ','قيد الإعداد','جاهز','مصدّق'];
+
+/* ================= الحالة ================= */
+const newVer=()=>({papers:[],acts:[],docs:[],flow:[],over:{},bonus:0});
+let S={profile:{name:'',rank:'assistant',rankDate:'',science:false,dept:''},ver:{old:newVer(),new:newVer()},ui:{ver:'old',tab:'dash'}};
+try{const x=JSON.parse(localStorage.getItem('promoApp.v1')||'null');if(x){S=Object.assign(S,x);S.ver.old=Object.assign(newVer(),S.ver.old);S.ver.new=Object.assign(newVer(),S.ver.new)}}catch(e){}
+function save(){try{localStorage.setItem('promoApp.v1',JSON.stringify(S))}catch(e){}}
+function R(v){const r=clone(RULESET[v]);for(const[k,val]of Object.entries(S.ver[v].over||{}))setIn(r,k,val);return r}
+const cur=()=>S.ui.ver;
+const tgt=()=>TARGET[S.profile.rank]||'mudarris';
+
+/* ================= الحسابات ================= */
+function paperPts(p,r,t){
+  if(p.manual!==''&&p.manual!=null&&!isNaN(+p.manual))return +p.manual;
+  if(p.kind==='book')return 0;
+  const n=Math.max(1,+p.n||1),pos=Math.min(Math.max(1,+p.pos||1),n);
+  if(p.cls==='b'){return r.t1b[t][Math.min(n-1,2)]}
+  const base=(p.cls==='irq'?r.t1a.irq:r.t1a.if)[t];
+  const pct=r.pct[Math.min(pos-1,r.pct.length-1)];
+  return round(base*pct/100);
+}
+function actPts(a,d){if(d.mode==='fixed')return d.p;if(d.mode==='choice')return(d.choices[+a.ch||0]||{p:0}).p;return(+a.qty||0)*d.unit}
+function calc(v){
+  const r=R(v),V=S.ver[v],t=tgt(),rk=r.ranks[t];
+  const inc=V.papers.filter(p=>p.inc!==false);
+  inc.forEach(p=>p._pts=paperPts(p,r,t));
+  const t1=round(inc.reduce((s,p)=>s+p._pts,0));
+  const groups={};
+  V.acts.forEach(a=>{const d=r.acts.find(x=>x.id===a.act);if(!d)return;(groups[d.id]=groups[d.id]||{d,sum:0,n:0});groups[d.id].sum+=actPts(a,d);groups[d.id].n++});
+  let t2=0;Object.values(groups).forEach(g=>{g.pts=g.d.cap?Math.min(g.sum,g.d.cap):g.sum;t2+=g.pts});t2=round(t2);
+  const bonusPct=+V.bonus||0,bonusPts=round((t1+t2)*bonusPct/100),total=round(t1+t2+bonusPts);
+  const paperCount=Math.min(inc.filter(p=>p.kind==='book').length,1)+inc.filter(p=>p.kind!=='book').length;
+  const fineCount=inc.filter(p=>p.fine!==false&&p.kind!=='book').length;
+  const accepted=inc.filter(p=>p.status==='accepted').length;
+  const bigQ=inc.filter(p=>p.quote!==''&&p.quote!=null&&+p.quote>20).length;
+  const hAct=V.acts.filter(a=>a.act==='hidx').reduce((m,a)=>Math.max(m,+a.qty||0),0);
+  // المستمسكات
+  let dt=0,dd=0;
+  const done=o=>o&&(o.done||(o.files&&o.files.length));
+  r.docs.forEach((_,i)=>{dt++;const o=V.docs[i];if(o&&(o.st>=2||(o.files&&o.files.length)))dd++});
+  inc.forEach(p=>r.pdocs.forEach((_,i)=>{dt++;if(done((p.pd||[])[i]))dd++}));
+  V.acts.forEach(a=>{dt++;if(done(a))dd++});
+  const docsPct=dt?Math.round(dd*100/dt):0;
+  const fl=V.flow||[];const flDone=r.stages.filter((_,i)=>fl[i]&&fl[i].done).length;
+  // المدة
+  let dur={ok:null,txt:'أدخل تاريخ أمر منح المرتبة الحالية في لوحة المتابعة'};
+  const rd=parseD(S.profile.rankDate);
+  if(rd){const el=addYears(rd,rk.years),dl=daysTo(el);
+    if(dl<=0)dur={ok:true,txt:'استُوفيت المدة القانونية ('+rk.years+' سنوات) منذ '+fmtD(el)};
+    else if(dl<=365&&t!=='mudarris')dur={ok:'warn',txt:'تُستوفى المدة في '+fmtD(el)+' (بعد '+dl+' يوماً) — يجوز التقديم قبل سنة من استيفاء المدة'};
+    else dur={ok:false,txt:'تُستوفى المدة في '+fmtD(el)+' (بعد '+dl+' يوماً)'}}
+  const checks=[];
+  checks.push({ok:dur.ok,t:'مدة الخدمة في المرتبة الحالية ('+rk.from+')',d:dur.txt});
+  checks.push({ok:total>=rk.total,t:'مجموع النقاط لا يقل عن '+rk.total,d:'المحتسب '+total+(bonusPts?' (منها '+bonusPts+' نسبة إضافة)':'')});
+  checks.push({ok:t1>=rk.t1,t:'نقاط الجدول (1) لا تقل عن '+rk.t1,d:'المحتسب '+t1});
+  checks.push({ok:t2>=rk.t2,t:'نقاط الجدول (2) لا تقل عن '+rk.t2,d:'المحتسب '+t2});
+  checks.push({ok:paperCount>=rk.papers,t:'عدد البحوث لا يقل عن '+rk.papers+' (أو بحث/بحثان ومؤلف)',d:'المدرج '+paperCount});
+  if(v==='old')checks.push({ok:accepted<=1,t:'بحث واحد فقط مقبول للنشر (غير منشور)',d:'المقبول: '+accepted});
+  if(v==='new')checks.push({ok:fineCount>=Math.min(rk.fine,rk.papers),t:'بحوث في الاختصاص الدقيق: '+(rk.fine>=99?'جميع البحوث':'لا تقل عن '+rk.fine),d:'المدرج في الدقيق: '+fineCount});
+  if(v==='new'&&S.profile.science){const hm=r.hmin[t];checks.push({ok:hAct>=hm,t:'مؤشر H-index لا يقل عن '+hm+' (اختصاص علمي)',d:'المدخل '+hAct+' — الرقم من مشروع التعديل المعلن 29/1/2025، طابقه مع النص'})}
+  checks.push({ok:bigQ===0,t:'نسبة الاقتباس لا تتجاوز 20%',d:bigQ?bigQ+' بحث يتجاوز الحد':'لا مخالفات في المدخل'});
+  checks.push({ok:docsPct===100?true:docsPct>=60?'warn':false,t:'اكتمال المستمسكات',d:docsPct+'% — '+dd+' من '+dt});
+  const ready=[Math.min(1,total/rk.total),Math.min(1,t1/rk.t1),Math.min(1,t2/rk.t2),dt?dd/dt:0];
+  return {r,V,t,rk,t1,t2,total,bonusPts,bonusPct,groups,paperCount,docsPct,dd,dt,flDone,checks,inc,rd:ready,ready:Math.round(ready.reduce((a,b)=>a+b,0)/4*100)};
+}
+
+/* ================= واجهات مساعدة ================= */
+let reg={},aid=0;
+function att(o){const id='a'+(++aid);reg[id]=o;o.files=o.files||[];
+ return '<div class="att">'+o.files.map(f=>'<span class="chip"><a href="#" data-act="open" data-f="'+f.id+'" title="'+esc(f.name)+'">📄 '+esc(f.name)+'</a><button data-act="delf" data-a="'+id+'" data-f="'+f.id+'" title="حذف">×</button></span>').join('')+
+ '<label class="btn sm ghost" style="cursor:pointer">📎 ارفاق مستمسك<input type="file" multiple hidden data-act="upload" data-a="'+id+'"></label></div>'}
+function field(label,path,val,o={}){
+ const tp=o.type||'text';let h='<label class="f">'+label;
+ if(o.sel){h+='<select data-p="'+path+'"'+(o.r?' data-r="1"':'')+'>'+o.sel.map(([k,l])=>'<option value="'+esc(k)+'"'+(String(k)===String(val)?' selected':'')+'>'+esc(l)+'</option>').join('')+'</select>'}
+ else if(tp==='area')h+='<textarea rows="2" data-p="'+path+'">'+esc(val)+'</textarea>';
+ else h+='<input type="'+tp+'" data-p="'+path+'" value="'+esc(val)+'"'+(o.r?' data-r="1"':'')+(o.ph?' placeholder="'+esc(o.ph)+'"':'')+(o.min!=null?' min="'+o.min+'"':'')+'>';
+ return h+'</label>'}
+function chk(label,path,val,r){return '<label class="f chk"><input type="checkbox" data-p="'+path+'" data-r="1"'+(val?' checked':'')+'> '+label+'</label>'}
+function ring(p,label,sub){const c=2*Math.PI*44,off=c*(1-p/100);const col=p>=100?'var(--ok)':'var(--acc)';
+ return '<div class="ring"><svg viewBox="0 0 110 110"><circle cx="55" cy="55" r="44" fill="none" stroke="#e6e1d3" stroke-width="11"/><circle cx="55" cy="55" r="44" fill="none" stroke="'+col+'" stroke-width="11" stroke-linecap="round" stroke-dasharray="'+c+'" stroke-dashoffset="'+off+'" transform="rotate(-90 55 55)"/><text x="55" y="62" text-anchor="middle" font-size="22" font-weight="800" fill="var(--pri)" font-family="inherit">'+Math.round(p)+'%</text></svg><div class="l">'+label+'</div><div class="s"><span class="num">'+sub+'</span></div></div>'}
+
+/* ================= العرض ================= */
+const TABS=[['dash','لوحة المتابعة'],['t1','الجدول 1 — البحوث'],['t2','الجدول 2 — النشاطات'],['docs','المستمسكات'],['flow','مراحل المعاملة'],['info','الشروط والمقارنة'],['sum','ملخص للطباعة']];
+function render(){
+ reg={};aid=0;
+ document.body.dataset.ver=cur();
+ document.querySelectorAll('.vcard').forEach(b=>b.classList.toggle('on',b.dataset.ver===cur()));
+ $('#tabs').innerHTML=TABS.map(([k,l])=>'<button data-tab="'+k+'" class="'+(S.ui.tab===k?'on':'')+'">'+l+'</button>').join('');
+ const c=calc(cur());
+ const fn={dash:vDash,t1:vT1,t2:vT2,docs:vDocs,flow:vFlow,info:vInfo,sum:vSum}[S.ui.tab];
+ $('#main').innerHTML=verBanner(c)+fn(c);
+}
+function verBanner(c){
+ const d=daysTo(EFFECT);const v=cur();
+ if(v==='old'){
+  return '<div class="banner info"><b>التعليمات النافذة حالياً: رقم 167 لسنة 2017.</b> '+(d>0?'ستحل محلها التعليمات رقم 10 لسنة 2025 بعد <b class="num">'+d+'</b> يوماً (22/12/2026). ':'حلّت محلها التعليمات الجديدة منذ 22/12/2026. ')+
+  '<span class="mut">وفق دليل جامعي للتعليمات الجديدة، لا تسري على المعاملات المروّجة قبل نفاذها (المادة 34) — طابق النص الرسمي قبل الاعتماد.</span></div>'}
+ return '<div class="banner warn"><b>التعليمات الجديدة رقم 10 لسنة 2025</b> — نُشرت في الوقائع العراقية العدد 4853 وتنفذ بعد سنة من نشرها (22/12/2026). '+(d>0?'المتبقي <b class="num">'+d+'</b> يوماً. ':'')+
+  '<br><span class="mut">المؤكد من المصادر: المدد والنقاط الدنيا ونسب الباحثين وقائمة المستمسكات. أما تفاصيل نقاط الجدول (2) والجدول (1-ب) فقيمها الافتراضية مأخوذة من 167 إلى أن تطابقها مع نص الوقائع — عدّلها من زر «القيم» في تبويب الشروط.</span></div>'}
+
+function vDash(c){
+ const P=S.profile,rk=c.rk;
+ let h='<div class="card"><h3>بيانات المتقدم</h3><div class="grid g2">'+
+  field('الاسم','profile.name',P.name)+
+  field('القسم / الكلية','profile.dept',P.dept)+
+  field('المرتبة الحالية','profile.rank',P.rank,{r:1,sel:[['assistant','مدرس مساعد'],['mudarris','مدرس'],['asst','أستاذ مساعد']]})+
+  field('تاريخ أمر منح المرتبة الحالية','profile.rankDate',P.rankDate,{type:'date',r:1})+
+  chk('اختصاص علمي (يُفعّل شرط H-index في التعليمات الجديدة)','profile.science',P.science)+
+  field('نسبة الإضافة للمنصب الإداري','ver.'+cur()+'.bonus',c.V.bonus,{r:1,sel:c.r.bonus.map(([k,l])=>[k,l])})+
+  '</div><p class="mut">المرتبة المستهدفة: <b>'+rk.label+'</b> — المدة المطلوبة '+rk.years+' سنوات في مرتبة '+rk.from+'.</p></div>';
+ h+='<div class="card"><h3>مؤشرات الجاهزية</h3><div class="rings">'+
+  ring(c.rd[0]*100,'المجموع الكلي',c.total+' / '+rk.total)+ring(c.rd[1]*100,'الجدول 1',c.t1+' / '+rk.t1)+
+  ring(c.rd[2]*100,'الجدول 2',c.t2+' / '+rk.t2)+ring(c.rd[3]*100,'المستمسكات',c.dd+' / '+c.dt)+'</div>'+
+  '<div style="margin-top:14px"><div class="mut">الجاهزية الإجمالية: <b>'+c.ready+'%</b></div><div class="bar"><i style="width:'+c.ready+'%"></i></div></div>'+
+  '<div style="margin-top:10px"><div class="mut">مراحل المعاملة: <b>'+c.flDone+' من '+c.r.stages.length+'</b></div><div class="bar"><i style="width:'+Math.round(c.flDone*100/c.r.stages.length)+'%"></i></div></div></div>';
+ h+='<div class="card"><h3>فحص الشروط</h3>'+c.checks.map(k=>{const cl=k.ok===true?'ok':k.ok===null||k.ok==='warn'?'warn':'bad';return '<div class="chk-row"><span class="dot '+cl+'">'+(k.ok===true?'✓':k.ok===false?'✗':'!')+'</span><div><b>'+esc(k.t)+'</b><small>'+esc(k.d)+'</small></div></div>'}).join('')+'</div>';
+ return h}
+
+function vT1(c){
+ const V=c.V,v=cur(),r=c.r;
+ let h='<div class="card"><h3>الجدول (1) — البحوث والمؤلفات</h3><p class="mut">النقاط تُحتسب تلقائياً حسب مرتبة <b>'+c.rk.label+'</b>. المطلوب '+c.rk.t1+' نقطة، والمحتسب <b>'+c.t1+'</b>. الجدول 1-ب للتخصصات الإنسانية (حسب عدد الباحثين)، والجدول 1-أ حسب ترتيب الباحث ونوع المجلة (نسب '+r.pct.join('% / ')+'%).</p>'+
+  '<button class="btn gold" data-act="addpaper">+ إضافة بحث / مؤلف</button></div>';
+ if(!V.papers.length)h+='<div class="card mut">لم تُضف أي بحوث بعد.</div>';
+ V.papers.forEach((p,i)=>{
+  const b='ver.'+v+'.papers.'+i+'.';const pts=p.inc===false?0:paperPts(p,r,c.t);
+  h+='<div class="item"><div class="hd"><b>'+(i+1)+'. '+esc(p.title||'بحث بلا عنوان')+'</b><span class="pts">'+pts+' نقطة</span><button class="btn sm red" data-act="delpaper" data-i="'+i+'">حذف</button></div><div class="grid g2">'+
+   field('عنوان البحث / المؤلف',b+'title',p.title)+field('المجلة أو الناشر',b+'journal',p.journal)+
+   field('النوع',b+'kind',p.kind,{r:1,sel:[['paper','بحث في مجلة'],['thesis','بحث مستل من رسالة مشرف عليها'],['book','مؤلف (كتاب)']]})+
+   field('الحالة',b+'status',p.status,{r:1,sel:[['published','منشور'],['accepted','مقبول للنشر']]})+
+   field('جدول الاحتساب',b+'cls',p.cls,{r:1,sel:[['b','1-ب: إنسانية — مجلة عربية/عراقية رصينة'],['irq','1-أ: مجلة عراقية محكمة معتمدة'],['if','1-أ: مجلة بمعامل تأثير / مفهرسة عالمياً']]})+
+   field('عدد الباحثين',b+'n',p.n,{type:'number',min:1,r:1})+field('ترتيبي بين الباحثين',b+'pos',p.pos,{type:'number',min:1,r:1})+
+   field('سنة النشر',b+'year',p.year,{type:'number'})+
+   field('نسبة الاقتباس %',b+'quote',p.quote,{type:'number',min:0,r:1})+
+   field('نقاط يدوية (اتركها فارغة للاحتساب التلقائي)',b+'manual',p.manual,{type:'number',r:1})+
+   chk('في الاختصاص الدقيق',b+'fine',p.fine!==false)+chk('مدرج ضمن ملف الترقية',b+'inc',p.inc!==false)+'</div>'+
+   (p.kind==='book'?'<p class="mut">المؤلف يعوّض بحثاً واحداً ويُدخل نقاطه يدوياً (مرة واحدة لكل مرتبة).</p>':'')+
+   '<div style="margin-top:8px"><b class="mut">مستمسكات هذا البحث</b>'+r.pdocs.map((nm,j)=>{p.pd=p.pd||[];p.pd[j]=p.pd[j]||{done:false,files:[]};const o=p.pd[j];
+     return '<div class="slot"><label class="nm"><input type="checkbox" data-p="'+b+'pd.'+j+'.done" data-r="1"'+(o.done||o.files.length?' checked':'')+'> '+esc(nm)+'</label>'+att(o)+'</div>'}).join('')+'</div></div>'});
+ return h}
+
+function vT2(c){
+ const V=c.V,v=cur(),r=c.r;
+ let h='<div class="card"><h3>الجدول (2) — النشاطات وخدمة المجتمع</h3><p class="mut">المطلوب '+c.rk.t2+' نقطة، والمحتسب <b>'+c.t2+'</b>. السقف لكل نشاط يُطبَّق تلقائياً.</p>'+
+  '<div class="grid g2"><label class="f">نوع النشاط<select id="newact">'+r.acts.map(a=>'<option value="'+a.id+'">'+esc(a.name)+'</option>').join('')+'</select></label><div style="padding-top:20px"><button class="btn gold" data-act="addact">+ إضافة نشاط</button></div></div></div>';
+ const gs=Object.values(c.groups);
+ if(gs.length)h+='<div class="card ovf"><h3>ملخص النقاط حسب النشاط</h3><table class="t"><tr><th>النشاط</th><th>عدد المدخلات</th><th>المجموع</th><th>المحتسب بعد السقف</th></tr>'+gs.map(g=>'<tr><td>'+esc(g.d.name)+'</td><td>'+g.n+'</td><td>'+g.sum+'</td><td><b>'+g.pts+'</b>'+(g.d.cap&&g.sum>g.d.cap?' <span class="mut">(سقف '+g.d.cap+')</span>':'')+'</td></tr>').join('')+'</table></div>';
+ if(!V.acts.length)h+='<div class="card mut">لم تُضف أي نشاطات بعد.</div>';
+ V.acts.forEach((a,i)=>{const d=r.acts.find(x=>x.id===a.act);if(!d)return;const b='ver.'+v+'.acts.'+i+'.';
+  h+='<div class="item"><div class="hd"><b>'+esc(d.name)+(d.verify?' <span class="badge" style="background:var(--warn)">تحقق من القيمة</span>':'')+'</b><span class="pts">'+actPts(a,d)+' نقطة</span><button class="btn sm red" data-act="delact" data-i="'+i+'">حذف</button></div><div class="grid g2">'+
+   (d.mode==='choice'?field('الفئة',b+'ch',a.ch||0,{r:1,sel:d.choices.map((x,k)=>[k,x.l+' — '+x.p])}):'')+
+   (d.mode==='unit'?field('العدد ('+d.ul+')',b+'qty',a.qty,{type:'number',min:0,r:1}):'')+
+   field('الوصف / الجهة',b+'desc',a.desc)+field('التاريخ',b+'date',a.date,{type:'date'})+'</div>'+
+   '<div class="slot"><label class="nm"><input type="checkbox" data-p="'+b+'done" data-r="1"'+(a.done||a.files.length?' checked':'')+'> المستند المطلوب: '+esc(d.doc)+'</label>'+att(a)+'</div></div>'});
+ return h}
+
+function vDocs(c){
+ const V=c.V,v=cur();let h='<div class="card"><h3>قائمة المستمسكات العامة</h3><p class="mut">أرفق الملفات (صور، PDF، Word) أو غيّر الحالة. مستمسكات كل بحث ونشاط في تبويباتها. الاكتمال الحالي <b>'+c.docsPct+'%</b>.</p>'+
+  '<div class="bar"><i style="width:'+c.docsPct+'%"></i></div></div><div class="card">';
+ c.r.docs.forEach((nm,i)=>{V.docs[i]=V.docs[i]||{st:0,files:[]};const o=V.docs[i];
+  h+='<div class="slot"><div class="nm"><b>'+(i+1)+'.</b> '+esc(nm)+'</div><select class="st s'+(o.st||0)+'" data-p="ver.'+v+'.docs.'+i+'.st" data-r="1">'+DOCST.map((s,k)=>'<option value="'+k+'"'+(+o.st===k?' selected':'')+'>'+s+'</option>').join('')+'</select>'+att(o)+'</div>'});
+ return h+'</div>'}
+
+function vFlow(c){
+ const V=c.V,v=cur(),st=c.r.stages;let first=st.findIndex((_,i)=>!(V.flow[i]&&V.flow[i].done));
+ let h='<div class="card"><h3>مراحل المعاملة</h3><p class="mut">أنجزت '+c.flDone+' من '+st.length+' مرحلة.</p><div class="bar"><i style="width:'+Math.round(c.flDone*100/st.length)+'%"></i></div></div><div class="card"><div class="tl">';
+ st.forEach((nm,i)=>{V.flow[i]=V.flow[i]||{done:false,date:'',note:''};const o=V.flow[i];const b='ver.'+v+'.flow.'+i+'.';
+  h+='<div class="st1 '+(o.done?'done':i===first?'cur':'')+'"><span class="nd"></span><label><input type="checkbox" data-p="'+b+'done" data-r="1"'+(o.done?' checked':'')+'> <b>'+(i+1)+'. '+esc(nm)+'</b>'+(i===first?' <span class="badge">المرحلة الحالية</span>':'')+'</label>'+
+   '<div class="grid g2" style="margin-top:6px">'+field('التاريخ',b+'date',o.date,{type:'date'})+field('ملاحظات',b+'note',o.note)+'</div></div>'});
+ return h+'</div></div>'}
+
+function vInfo(c){
+ const r=c.r;
+ let h='<div class="card"><h3>'+r.title+'</h3><div class="ovf"><table class="t"><tr><th>المرتبة</th><th>المدة في المرتبة السابقة</th><th>مجموع النقاط</th><th>الجدول 1</th><th>الجدول 2</th><th>البحوث</th></tr>'+
+  Object.values(r.ranks).map(k=>'<tr><td>'+k.label+'</td><td>'+k.years+' سنوات ('+k.from+')</td><td>'+k.total+'</td><td>'+k.t1+'</td><td>'+k.t2+'</td><td>'+k.papers+' بحوث'+(k.papers===2?' (أو بحث ومؤلف)':' (أو بحثان ومؤلف)')+'</td></tr>').join('')+'</table></div>'+
+  '<p style="margin-top:10px"><button class="btn ghost" data-act="values">⚙ القيم (تعديل جداول النقاط)</button> <button class="btn ghost" data-act="copyver">نسخ بيانات الواجهة '+(cur()==='old'?'الحالية إلى الجديدة':'الجديدة إلى الحالية')+'</button></p></div>';
+ h+='<div class="card ovf"><h3>مقارنة بين التعليمتين</h3><table class="t"><tr><th>البند</th><th>167 لسنة 2017 (الحالية)</th><th>10 لسنة 2025 (الجديدة)</th></tr>'+
+ [['النفاذ','نافذة','تنفذ بعد سنة من نشرها في الوقائع (22/12/2026)'],
+  ['النقاط الدنيا والمدد','مدرس 70/46/24 — أ.م 80/52/28 — أستاذ 90/59/31','لم تتغير'],
+  ['نسب النقاط بين الباحثين (1-أ)','100% / 80% / 70%','100% / 80% / 70% / 50% / 40% / 20% (حتى السادس فما بعد)'],
+  ['نسبة الإضافة للمناصب','3% / 5% / 10% بحسب المنصب','5% تُضاف لاستكمال النقاط فقط، لمنصب واحد، بعد قضاء نصف المدة والاستمرار فيه'],
+  ['الاختصاص','العام للمدرس والدقيق لغيره','بحث دقيق واحد للمدرس، بحثان للأستاذ المساعد، وجميعها للأستاذ'],
+  ['الفهرسة','مجلة رصينة (ISSN) أو معامل تأثير','Scopus أو Web of Science لمرتبتي الأستاذ المساعد والأستاذ (مع استثناءات المادة 25)'],
+  ['بحث المؤتمر','واحد، منشور كاملاً في الوقائع أو في مجلة معتمدة','واحد، منشور كاملاً في وقائع مفهرسة (Scopus/WoS) ولا يكون المؤتمر الأول'],
+  ['الكتاب','ISBN، ويحل محل بحث','ISBN ورقم إيداع في المكتبة الوطنية، لمرة واحدة لكل مرتبة'],
+  ['H-index','نشاط في الجدول 2 (نقطة لكل وحدة، حتى 30)','للاختصاصات العلمية فقط — القيم المعلنة في مشروع التعديل: مدرس 1، أ.م 2، أستاذ 4'],
+  ['التقديم','ورقي عبر القسم واللجان','عبر النظام الإلكتروني المركزي لدائرة البحث والتطوير (أُطلق شباط 2025)']
+ ].map(x=>'<tr><td><b>'+x[0]+'</b></td><td>'+x[1]+'</td><td>'+x[2]+'</td></tr>').join('')+'</table>'+
+ '<p class="mut">المصادر: نص 167/2017 (دليل جامعة الموصل للتقديم الإلكتروني)، ودليل تعليمات 10/2025 لإحدى الكليات، وإعلان وزارة التعليم العالي بتاريخ 29/1/2025 والوقائع العراقية العدد 4853. المقارنة ملخص إرشادي وليست بديلاً عن النص الرسمي.</p></div>';
+ return h}
+
+function vSum(c){
+ const P=S.profile,r=c.r;
+ let h='<div class="card"><button class="btn noprint" onclick="window.print()">🖨 طباعة / حفظ PDF</button><h3 style="margin-top:12px">ملخص ملف الترقية — '+r.title+'</h3>'+
+  '<p><b>الاسم:</b> '+esc(P.name||'—')+' &nbsp; <b>القسم:</b> '+esc(P.dept||'—')+'<br><b>المرتبة الحالية:</b> '+RANKLBL[P.rank]+' منذ '+fmtD(parseD(P.rankDate))+' &nbsp; <b>المستهدفة:</b> '+c.rk.label+'</p>'+
+  '<p><b>النقاط:</b> المجموع '+c.total+' / '+c.rk.total+' — الجدول 1: '+c.t1+' / '+c.rk.t1+' — الجدول 2: '+c.t2+' / '+c.rk.t2+'</p></div>';
+ h+='<div class="card ovf"><h3>البحوث</h3><table class="t"><tr><th>#</th><th>العنوان</th><th>المجلة</th><th>الحالة</th><th>الباحثون</th><th>النقاط</th></tr>'+c.inc.map((p,i)=>'<tr><td>'+(i+1)+'</td><td>'+esc(p.title)+'</td><td>'+esc(p.journal)+'</td><td>'+(p.status==='accepted'?'مقبول':'منشور')+'</td><td>'+(p.pos||1)+' من '+(p.n||1)+'</td><td>'+paperPts(p,r,c.t)+'</td></tr>').join('')+'</table></div>';
+ h+='<div class="card ovf"><h3>النشاطات</h3><table class="t"><tr><th>#</th><th>النشاط</th><th>الوصف</th><th>النقاط</th></tr>'+c.V.acts.map((a,i)=>{const d=r.acts.find(x=>x.id===a.act);return d?'<tr><td>'+(i+1)+'</td><td>'+esc(d.name)+'</td><td>'+esc(a.desc)+'</td><td>'+actPts(a,d)+'</td></tr>':''}).join('')+'</table></div>';
+ h+='<div class="card"><h3>حالة المستمسكات</h3>'+r.docs.map((n,i)=>{const o=c.V.docs[i]||{st:0,files:[]};return '<div>'+(o.st>=2||o.files.length?'☑':'☐')+' '+esc(n)+' — '+DOCST[o.st||0]+(o.files.length?' ('+o.files.length+' ملف)':'')+'</div>'}).join('')+'</div>';
+ return h}
+
+/* ================= تعديل القيم ================= */
+function openValues(){
+ const v=cur(),r=R(v);const inp=(path,val,lbl)=>'<label class="f">'+lbl+'<input type="number" step="any" data-ov="'+path+'" value="'+val+'"></label>';
+ let h='<div class="modal" data-act="closem"><div class="box"><h3>القيم القابلة للتعديل — '+r.title+'</h3><p class="mut">عدّل أي رقم يختلف عن النص الرسمي. تُحفظ التعديلات لهذه الواجهة فقط.</p>';
+ h+='<h4>شروط المراتب</h4><div class="grid g4">';
+ for(const[k,x]of Object.entries(r.ranks))h+=['years','total','t1','t2','papers'].map(f=>inp('ranks.'+k+'.'+f,x[f],x.label+' — '+({years:'السنوات',total:'المجموع',t1:'الجدول 1',t2:'الجدول 2',papers:'البحوث'})[f])).join('');
+ h+='</div><h4>نسب الباحثين (%)</h4><div class="grid g4">'+r.pct.map((p,i)=>inp('pct.'+i,p,'الباحث '+(i+1)+(i===r.pct.length-1&&v==='old'?' فما بعد':''))).join('')+'</div>';
+ h+='<h4>الجدول 1-أ (نقاط الباحث الأول)</h4><div class="grid g4">';
+ for(const k of Object.keys(r.ranks)){h+=inp('t1a.if.'+k,r.t1a.if[k],r.ranks[k].label+' — معامل تأثير')+inp('t1a.irq.'+k,r.t1a.irq[k],r.ranks[k].label+' — عراقية معتمدة')}
+ h+='</div><h4>الجدول 1-ب (إنسانية)</h4><div class="grid g4">';
+ for(const k of Object.keys(r.ranks))['منفرد','مع باحث','مع باحثين'].forEach((l,i)=>h+=inp('t1b.'+k+'.'+i,r.t1b[k][i],r.ranks[k].label+' — '+l));
+ h+='</div><h4>الجدول 2</h4><div class="grid g4">';
+ r.acts.forEach((a,i)=>{if(a.mode==='fixed')h+=inp('acts.'+i+'.p',a.p,a.name);else if(a.mode==='unit'){h+=inp('acts.'+i+'.unit',a.unit,a.name+' — للوحدة')+inp('acts.'+i+'.cap',a.cap,a.name+' — السقف')}else a.choices.forEach((c,j)=>h+=inp('acts.'+i+'.choices.'+j+'.p',c.p,a.name+' — '+c.l))});
+ h+='</div><p style="margin-top:14px"><button class="btn" data-act="closem">تم</button> <button class="btn red" data-act="resetvals">إعادة القيم الأصلية</button></p></div></div>';
+ $('#modal').innerHTML=h}
+
+/* ================= الأحداث ================= */
+document.addEventListener('click',async e=>{
+ const t=e.target.closest('[data-act],[data-tab],button[data-ver]');if(!t)return;
+ if(t.dataset.tab){S.ui.tab=t.dataset.tab;save();render();window.scrollTo(0,0);return}
+ if(t.dataset.ver&&!t.dataset.act){S.ui.ver=t.dataset.ver;save();render();return}
+ const a=t.dataset.act,V=S.ver[cur()];
+ if(a==='addpaper'){V.papers.push({id:uid(),title:'',journal:'',kind:'paper',status:'published',cls:'b',n:1,pos:1,year:'',quote:'',manual:'',fine:true,inc:true,pd:[]});save();render()}
+ else if(a==='delpaper'){if(confirm('حذف هذا البحث ومرفقاته؟')){const p=V.papers[+t.dataset.i];const ids=(p.pd||[]).flatMap(o=>(o.files||[]).map(f=>f.id));V.papers.splice(+t.dataset.i,1);await cleanup(ids);save();render()}}
+ else if(a==='addact'){V.acts.push({act:$('#newact').value,ch:0,qty:1,desc:'',date:'',done:false,files:[]});save();render()}
+ else if(a==='delact'){if(confirm('حذف هذا النشاط ومرفقاته؟')){const ids=(V.acts[+t.dataset.i].files||[]).map(f=>f.id);V.acts.splice(+t.dataset.i,1);await cleanup(ids);save();render()}}
+ else if(a==='open'){e.preventDefault();try{const rec=await fget(t.dataset.f);if(!rec)return toast('الملف غير موجود');const u=URL.createObjectURL(rec.blob);window.open(u,'_blank')}catch(x){toast('تعذر فتح الملف')}}
+ else if(a==='delf'){const o=reg[t.dataset.a];o.files=o.files.filter(f=>f.id!==t.dataset.f);save();render();await cleanup([t.dataset.f])}
+ else if(a==='values')openValues();
+ else if(a==='closem'){if(e.target===t||t.tagName==='BUTTON'){$('#modal').innerHTML='';render()}}
+ else if(a==='resetvals'){if(confirm('إعادة جميع القيم إلى الأصل؟')){V.over={};save();openValues()}}
+ else if(a==='copyver'){const from=cur(),to=from==='old'?'new':'old';if(confirm('نسخ البحوث والنشاطات والمستمسكات إلى الواجهة الأخرى؟ ستُستبدل بياناتها الحالية.')){const c=JSON.parse(JSON.stringify(S.ver[from]));S.ver[to]=Object.assign(newVer(),{papers:c.papers,acts:c.acts,docs:c.docs});S.ver[to].over=S.ver[to].over||{};save();toast('تم النسخ')}}
+ else if(a==='backup')backup();
+});
+function refs(id){let n=0;const w=o=>{if(Array.isArray(o))o.forEach(w);else if(o&&typeof o==='object'){if(o.id===id&&o.name&&o.size!=null)n++;Object.values(o).forEach(w)}};w(S.ver);return n}
+async function cleanup(ids){for(const id of ids)if(!refs(id))try{await fdel(id)}catch(e){}}
+document.addEventListener('input',e=>{const t=e.target;if(t.dataset.p&&!t.dataset.r&&t.type!=='checkbox'&&t.tagName!=='SELECT'){setIn(S,t.dataset.p,t.value);save()}});
+document.addEventListener('change',async e=>{
+ const t=e.target;
+ if(t.dataset.p){let v=t.type==='checkbox'?t.checked:t.value;if(t.dataset.p.endsWith('.st')||t.dataset.p.endsWith('.ch'))v=+v;setIn(S,t.dataset.p,v);
+   if(t.dataset.p.endsWith('.done')&&t.dataset.p.includes('.docs.')===false){}
+   save();if(t.dataset.r||t.type==='checkbox'||t.tagName==='SELECT')render();return}
+ if(t.dataset.ov){const v=cur(),b=RULESET[v];const bv=getIn(b,t.dataset.ov);const nv=t.value===''?bv:+t.value;const V=S.ver[v];if(nv===bv)delete V.over[t.dataset.ov];else V.over[t.dataset.ov]=nv;save();return}
+ if(t.dataset.act==='upload'){const o=reg[t.dataset.a];if(!o)return;let n=0;
+   for(const f of t.files){try{const id=uid()+uid();await fput(id,{blob:f,name:f.name,type:f.type});o.files.push({id,name:f.name,size:f.size,type:f.type});n++}catch(x){toast('تعذر حفظ '+f.name)}}
+   if(n){save();render();toast('تم ارفاق '+n+' ملف')}return}
+ if(t.dataset.act==='restore'){const f=t.files[0];if(!f)return;try{const j=JSON.parse(await f.text());if(!j.state)throw 0;for(const[id,x]of Object.entries(j.files||{})){const r=await fetch(x.data);await fput(id,{blob:await r.blob(),name:x.name,type:x.type})}S=j.state;save();render();toast('تم الاسترجاع')}catch(x){toast('ملف غير صالح')}}
+});
+async function backup(){
+ const files={};const ids=new Set();const w=o=>{if(Array.isArray(o))o.forEach(w);else if(o&&typeof o==='object'){if(o.id&&o.name&&o.size!=null)ids.add(o.id);Object.values(o).forEach(w)}};w(S.ver);
+ for(const id of ids){try{const rec=await fget(id);if(!rec)continue;const data=await new Promise(r=>{const fr=new FileReader();fr.onload=()=>r(fr.result);fr.readAsDataURL(rec.blob)});files[id]={name:rec.name,type:rec.type,data}}catch(e){}}
+ const blob=new Blob([JSON.stringify({state:S,files})],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='promotion-backup-'+new Date().toISOString().slice(0,10)+'.json';a.click();toast('تم تنزيل النسخة الاحتياطية')}
+render();
+</script>
+</body>
+</html>
